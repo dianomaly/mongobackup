@@ -59,8 +59,6 @@ log "[INFO] Linux user account is: [$USER]"
 
 log "[INFO] S3 bucket prefix that the backup tar is stored in: [$S3PREFIX]" 
 
-log "[INFO] Local Mongodump directory: [$DEST]"
-
 log "[INFO] Tar file that will be created: [$TAR]" 
 
 # Ensuring s3 bucket has the proper folder structure exist - if already exist nothing is done.
