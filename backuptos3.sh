@@ -3,6 +3,7 @@
 function log() {
   echo "$(date +"[%d/%b/%Y:%k:%M:%S %z]"): $1"
 }
+
 function usage() {
   echo "USAGE: ${BASH_SOURCE[0]} ..."
   echo "   -e Set name of environment app is associated with"
@@ -11,6 +12,7 @@ function usage() {
   echo "   -b S3 bucket name where tar file will be uploaded to "
  
 }
+
 while getopts e:a:s:b: flag; do
   case "$flag" in
     e)
@@ -39,6 +41,7 @@ for arg in ENVIRONMENT APP_NAME SOURCE BUCKET; do
     exit 1
   fi
 done
+
 S3PREFIX="$APP_NAME/$ENVIRONMENT/"                                                       # S3 bucket prefix - NOTE the prefix name must end with / character else AWS CLI creates a file instead of a folder prefix
 USER=$(whoami)                                                                           # Linux user account
 DEST="/home/$USER/$APP_NAME/$ENVIRONMENT/"                                               # Backup directory
